@@ -179,4 +179,11 @@ with gr.Blocks(theme=gr.themes.Glass()) as demo:
         outputs=[markdown_output, excel_output]
     )
 
-demo.launch()
+port = int(os.environ.get("PORT", 7860))
+
+if __name__ == "__main__":
+    demo.launch(
+        server_name="0.0.0.0", 
+        server_port=port, 
+        theme=gr.themes.Glass() # שים לב ששמנו כאן את ה-theme לפי האזהרה שקיבלת מקודם!
+    )
